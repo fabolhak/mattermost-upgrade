@@ -133,7 +133,7 @@ tar -xf "${downloaddir}/mattermost-upgrade.tar.gz" -C "${downloaddir}/mattermost
 
 echo "[+] Stopping Mattermost service..."
 if type supervisorctl >/dev/null 2>&1;  then
-    supervisorctl stop mattermost
+    supervisorctl stop mattermost >/dev/null 2>&1
 elif type systemctl >/dev/null 2>&1;  then
      systemctl stop mattermost
 else
@@ -182,7 +182,7 @@ rm -f "${downloaddir}/mattermost-upgrade.gz"
 
 echo "[+] Starting Mattermost service..."
 if type supervisorctl >/dev/null 2>&1;  then
-    supervisorctl start mattermost
+    supervisorctl start mattermost >/dev/null 2>&1
 elif type systemctl >/dev/null 2>&1;  then
      systemctl start mattermost
 else
