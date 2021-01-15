@@ -10,13 +10,13 @@ set -e
 ################################################################################
 
 # Mattermost path
-mattermostdir="~/mattermost"
+mattermostdir="/home/$USER/mattermost"
 
 # Backup path
-backupdir="~/mattermost-backup"
+backupdir="/home/$USER/mattermost-backup"
 
 # Temporary path for download
-downloaddir="/tmp"
+downloaddir="/home/$USER/tmp"
 
 # Specify the edition you use
 edition="Team"
