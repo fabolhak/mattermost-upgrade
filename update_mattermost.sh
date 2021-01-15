@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Immediately exit if a command run from a loop, a pipeline or a compound
 # command statement fails or a variable is used unset.
