@@ -45,9 +45,20 @@ if [[ "${edition}" != "Team" ]] && [[ "${edition}" != "Enterprise" ]]; then
 fi
 
 # Check config variables
-test -d ${backup}
-test -d ${downloaddir}
-test -d ${mattermostdir}
+if [ ! -d "${mattermostdir}" ];  then
+     echo "Mattermost directory not found. Please check config"
+     exit 1
+fi
+
+if [ ! -d "${downloaddir}" ];  then
+     echo "Download directory not found. Please check config"
+     exit 1
+fi
+
+if [ ! -d "${backupdir}" ];  then
+     echo "Backup directory not found. Please check config"
+     exit 1
+fi
 
 # Check if Mattermost exists in the path provided above
 if [ ! -f "${mattermostdir}/bin/mattermost" ];  then
