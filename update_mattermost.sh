@@ -45,17 +45,17 @@ if [[ "${edition}" != "Team" ]] && [[ "${edition}" != "Enterprise" ]]; then
 fi
 
 # Check config variables
-if [ ! -d "${mattermostdir}" ];  then
+if [ ! -d "$mattermostdir" ];  then
      echo "Mattermost directory not found. Please check config"
      exit 1
 fi
 
-if [ ! -d "${downloaddir}" ];  then
+if [ ! -d "$downloaddir" ];  then
      echo "Download directory not found. Please check config"
      exit 1
 fi
 
-if [ ! -d "${backupdir}" ];  then
+if [ ! -d "$backupdir" ];  then
      echo "Backup directory not found. Please check config"
      exit 1
 fi
