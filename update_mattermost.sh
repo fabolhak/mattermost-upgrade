@@ -28,8 +28,8 @@ plugins=0
 ################################################################################
 
 # Check dependencies
-if ! type "systemctl" >/dev/null 2>&1 && ! type "service" >/dev/null 2>&1 && ! type "supervisord" >/dev/null 2>&1; then
-     echo "[-] The daemon manager (systemd, sysvinit or supervisord) is not accessible. Aborted."
+if ! type "systemctl" >/dev/null 2>&1 && ! type "service" >/dev/null 2>&1 && ! type "supervisorctl" >/dev/null 2>&1; then
+     echo "[-] The daemon manager (systemd, sysvinit or supervisorctl) is not accessible. Aborted."
      exit 1
 fi
 
@@ -132,8 +132,8 @@ mkdir -p "${downloaddir}/mattermost-upgrade"
 tar -xf "${downloaddir}/mattermost-upgrade.tar.gz" -C "${downloaddir}/mattermost-upgrade/"
 
 echo "[+] Stopping Mattermost service..."
-if type supervisord >/dev/null 2>&1;  then
-    supervisord stop mattermost
+if type supervisorctl >/dev/null 2>&1;  then
+    supervisorctl stop mattermost
 else if type systemctl >/dev/null 2>&1;  then
      systemctl stop mattermost
 else
@@ -181,8 +181,8 @@ rm -f "${downloaddir}/mattermost-upgrade.gz"
 #setcap cap_net_bind_service=+ep "${mattermostdir}/bin/mattermost"
 
 echo "[+] Starting Mattermost service..."
-if type supervisord >/dev/null 2>&1;  then
-    supervisord start mattermost
+if type supervisorctl >/dev/null 2>&1;  then
+    supervisorctl start mattermost
 if type systemctl >/dev/null 2>&1;  then
      systemctl start mattermost
 else
