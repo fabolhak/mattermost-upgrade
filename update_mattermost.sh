@@ -23,7 +23,7 @@ edition="Team"
 #edition="Enterprise"
 
 # Start with plugins? Set 1 for starting with plugins active
-plugins=0
+plugins=1
 
 ################################################################################
 
