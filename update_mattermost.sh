@@ -75,12 +75,9 @@ case "$input" in
                 echo "[+] Starting the update process of Mattermost..."
                 ;;
         *)
-                echo "[-] Please create a backup and start again"
-                exit 1
+                echo "[-] Skipping backup"
                 ;;
 esac
-
-return 0
 
 # Get version from argument
 if [ -z "${1}" ]; then
