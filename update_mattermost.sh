@@ -66,6 +66,19 @@ if [ ! -f "${mattermostdir}/bin/mattermost" ];  then
      exit 1
 fi
 
+# Ask to clean backup dir
+read -r -p "[?] Do you want to clean backup directory [Y/n] " input
+case "$input" in
+        [yY])
+                echo "[+] Cleaning Backup directory..."
+                rm "${backupdir}/mattermost-backup-*.tar.gz"
+                ;;
+        *)
+                echo "[-] Skipping cleaning"
+                ;;
+esac
+
+
 # Ask for backup
 read -r -p "[?] Do you want to backup mattermost first? [Y/n] " input
 case "$input" in
