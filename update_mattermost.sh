@@ -66,6 +66,13 @@ if [ ! -f "${mattermostdir}/bin/mattermost" ];  then
      exit 1
 fi
 
+# Get version from argument
+if [ -z "${1}" ]; then
+     echo "Please specify the version of Mattermost to download"
+     exit 1
+fi
+version="${1}"
+
 # Ask to clean backup dir
 read -r -p "[?] Do you want to clean backup directory [Y/n] " input
 case "$input" in
@@ -91,13 +98,6 @@ case "$input" in
                 echo "[-] Skipping backup"
                 ;;
 esac
-
-# Get version from argument
-if [ -z "${1}" ]; then
-     echo "Please specify the version of Mattermost to download"
-     exit 1
-fi
-version="${1}"
 
 if [[ "${edition}" == "Team" ]]; then
      url="https://releases.mattermost.com/${version}/mattermost-team-${version}-linux-amd64.tar.gz"
