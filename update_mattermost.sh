@@ -71,7 +71,7 @@ read -r -p "[?] Do you want to clean backup directory [Y/n] " input
 case "$input" in
         [yY])
                 echo "[+] Cleaning Backup directory..."
-                rm "${backupdir}/mattermost-backup-*.tar.gz"
+                rm -f "${backupdir}"/mattermost-backup-*.tar.gz
                 ;;
         *)
                 echo "[-] Skipping cleaning"
